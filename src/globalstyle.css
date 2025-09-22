@@ -1,0 +1,38 @@
+/* login signup page styling start */
+
+.main-container-primary-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+}
+
+.signup-form-primary-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  margin: 20px auto;
+}
+
+.signup-form-primary-wrapper input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+
+.login-form-primary-wrapper{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 300px;
+  margin: 20px auto;
+}
+
+.login-form-primary-wrapper input {
+  padding: 10px;
+  font-size: 16px;
+}
+
+/* login signup page styling  end */
