@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "../globalstyle.css";
 
 const Login = ({ switchToSignup }) => {
@@ -69,18 +69,19 @@ const Login = ({ switchToSignup }) => {
           <span style={{ color: "red" }}>*Password* is mandatory</span>
         )}
 
-        <input type="submit" style={{ backgroundColor: "#a1eafb" }} />
+        <input className="main-submit-button-rp" type="submit"  />
       </form>
 
       {message && <p style={{ color: "blue" }}>{message}</p>}
 
       <div className="signup-message-primary-wrapper">
         Don't have an account?{" "}
-        <span
+        <span className="signin-text"
           onClick={switchToSignup}
-          style={{ color: "blue", cursor: "pointer" }}
         >
+            <Link to="/signup" style={{ color: "black", cursor: "pointer" }}>
           Signup
+        </Link>
         </span>
       </div>
     </div>

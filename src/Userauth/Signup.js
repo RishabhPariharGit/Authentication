@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useNavigate, Link } from "react-router-dom";
 import "../globalstyle.css";
 
-const Signup = ({ switchToLogin }) => {
+const Signup = () => {
   const [message, setMessage] = useState("");
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -20,9 +22,8 @@ const Signup = ({ switchToLogin }) => {
 
       const result = await res.json();
       if (res.ok) {
-        setMessage("✅ Signup successful! Please login.");
-        // After signup, switch to login page
-        setTimeout(() => switchToLogin(), 1500);
+        setMessage("✅ Signup successful! Redirecting to login...");
+        setTimeout(() => navigate("/login"), 1500);
       } else {
         setMessage("❌ " + result.message);
       }
@@ -68,19 +69,16 @@ const Signup = ({ switchToLogin }) => {
           <span style={{ color: "red" }}>*Password* is mandatory</span>
         )}
 
-        <input type="submit" style={{ backgroundColor: "#a1eafb" }} />
+        <input className="main-submit-button-rp" type="submit" />
       </form>
 
       {message && <p style={{ color: "blue" }}>{message}</p>}
 
       <div className="signup-message-primary-wrapper">
         Already have an account?{" "}
-        <span
-          onClick={switchToLogin}
-          style={{ color: "blue", cursor: "pointer" }}
-        >
+        <Link to="/login" className="signin-text" style={{ color: "black", cursor: "pointer" }}>
           Login
-        </span>
+        </Link>
       </div>
     </div>
   );
